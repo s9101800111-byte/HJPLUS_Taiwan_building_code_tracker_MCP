@@ -36,13 +36,13 @@ class BuildingCodeServer {
             tools: [
                 {
                     name: 'search_building_code',
-                    description: '搜尋建築技術規則建築構造編條文 (Taiwan Building Code - Construction Works)',
+                    description: '搜尋台灣「建築技術規則建築構造編」之母法條文 (Taiwan Building Code - Law Articles)。[注意] 僅限搜尋母法條文（如載重、受力、構造規範），搜尋關鍵字必須使用繁體中文（例：活載重、地震力、基礎構造），請由對話中萃取 1-3 個核心名詞作為關鍵字，勿輸入完整長句。',
                     inputSchema: {
                         type: 'object',
                         properties: {
                             query: {
                                 type: 'string',
-                                description: '搜尋關鍵字 (例如: 活載重, 地震力, 基礎構造)',
+                                description: '中文搜尋關鍵字',
                             },
                             limit: {
                                 type: 'number',
@@ -55,13 +55,13 @@ class BuildingCodeServer {
                 },
                 {
                     name: 'search_building_interpretations',
-                    description: '搜尋內政部國土管理署解釋函 (Taiwan Building Code Interpretations/Orders)',
+                    description: '搜尋台灣內政部國土管理署之「解釋函令/函釋」(Taiwan Building Code - Interpretations/Orders)。[注意] 用於搜尋行政解釋、實務案例、判例或補充規定。搜尋關鍵字必須使用繁體中文（例：採光、違章建築、防火避難），請由對話中萃取 1-2 個核心名詞作為關鍵字。此工具會回傳包含函號與官網連結的資訊，請務必將連結提供給使用者複查。',
                     inputSchema: {
                         type: 'object',
                         properties: {
                             query: {
                                 type: 'string',
-                                description: '搜尋關鍵字 (例如: 採光, 違章建築, 防火避難)',
+                                description: '中文搜尋關鍵字',
                             },
                             limit: {
                                 type: 'number',
@@ -74,7 +74,7 @@ class BuildingCodeServer {
                 },
                 {
                     name: 'refresh_data',
-                    description: '重新從全國法規資料庫抓取最新法規資料',
+                    description: '強制重新從全國法規資料庫抓取最新法規母法條文資料，並更新本地快取。',
                     inputSchema: {
                         type: 'object',
                         properties: {},
