@@ -5,7 +5,8 @@ import path from 'path';
 import { LawData, Article } from './types.js';
 
 const MOJ_URL = 'https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070115';
-const CACHE_FILE = path.join(process.cwd(), 'data', 'law_cache.json');
+// 錨定到套件資料夾，避免 Claude Desktop 啟動時 CWD 為 System32 導致寫入被拒
+const CACHE_FILE = path.join(__dirname, '..', 'data', 'law_cache.json');
 
 export async function fetchLawData(forceRefresh = false): Promise<LawData> {
   if (!forceRefresh) {
